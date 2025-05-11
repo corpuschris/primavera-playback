@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Primavera {{ year }} Lineup</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <h1>🎤 Primavera {{ year }} Lineup</h1>
+    <p><a href="/">← Back to years</a></p>
+
+    <ul>
+      {% for perf in performances %}
+        <li>
+          <strong>{{ perf.day }}</strong> – {{ perf.stage }} – {{ perf.artist }}
+
+          <!-- Viewing status buttons -->
+          <div class="experience-buttons" data-performance-id="{{ perf.id }}">
+            <button onclick="setStatus({{ perf.id }}, 'watched')">✅ Watched</button>
+            <button onclick="setStatus({{ perf.id }}, 'glanced')">👀 Glanced</button>
+            <button onclick="setStatus({{ perf.id }}, 'skipped')">❌ Skipped</button>
+
+            <!-- Rating dropdown (only used for 'watched') -->
+            <select id="rating-{{ perf.id }}" onchange="setRating({{ perf.id }}, this.value)" style="display: none;">
+              <option value="">Rate it</option>
+              <option value="good">🌟 Good</option>
+              <option value="okay">😐 Okay</option>
+              <option value="bad">💩 Meh</option>
+            </select>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+</body>
+</html>

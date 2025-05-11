@@ -1,0 +1,222 @@
+{
+	"copyright":"Licensed under a Creative Commons Attribution-NonCommercial 3.0 License https://creativecommons.org/licenses/by-nc/3.0/. Free for non-commercial use. Contact halvin@clashfinder.com for other uses.",
+	"modified":"2025-05-11 10:06",
+	"name":"Primavera Sound Barcelona 2025",
+	"id":"madridps23",
+	"url":"https://clashfinder.com/s/madridps23/",
+	"printAdvisory":1,
+	"timezone":"Europe/London",
+	"tzOffset":3600,
+	"tzNote":"Start and end times are given in the timezone of the event. Offset by -tzOffset for UTC.",
+	"locations":[
+		{
+			"name":"Sala Apolo",
+			"events":[
+				{"name":"Yasmin Williams","short":"yasmin(1)","start":"2025-06-06 12:00","end":"2025-06-06 13:00"},
+				{"name":"Julie Byrne","short":"julieb(1)","start":"2025-06-06 14:00","end":"2025-06-06 15:00"},
+				{"name":"Música Esporádica","short":"msicae(1)","start":"2025-06-07 13:00","end":"2025-06-07 14:00"},
+				{"name":"Destroyer","short":"destro(1)","start":"2025-06-07 16:00","end":"2025-06-07 17:00"}
+			]
+		},
+		{
+			"name":"Paralel 62",
+			"events":[
+				{"name":"Kali Malone","short":"kalima(1)","start":"2025-06-05 13:00","end":"2025-06-05 14:00"},
+				{"name":"Motriz Von Oswald: Silencio","short":"motriz2(1)","start":"2025-06-05 15:00","end":"2025-06-05 16:00"},
+				{"name":"Red Stamp","short":"redsta(1)","start":"2025-06-06 13:00","end":"2025-06-06 14:00"},
+				{"name":"Cat Power sings Dylan","short":"catpow1(1)","start":"2025-06-06 16:00","end":"2025-06-06 17:00"},
+				{"name":"Maria Somerville","short":"marias(1)","start":"2025-06-07 12:00","end":"2025-06-07 13:00"},
+				{"name":"Salif Keita","short":"salifk(1)","start":"2025-06-07 14:00","end":"2025-06-07 15:00"}
+			]
+		},
+		{
+			"name":"Estrella Damm",
+			"events":[
+				{"name":"Sistema de Entretenimiento","short":"sistem(1)","start":"2025-06-05 17:30","end":"2025-06-05 18:15"},
+				{"name":"Parcels","short":"parcel(1)","start":"2025-06-05 19:45","end":"2025-06-05 20:45"},
+				{"name":"FKA Twigs","short":"fkatwi(1)","start":"2025-06-05 22:15","end":"2025-06-05 23:30"},
+				{"name":"Jaime XX","short":"jaimex(1)","start":"2025-06-06 01:45","end":"2025-06-06 03:00"},
+				{"name":"Carolina Durante","short":"caroli1(1)","start":"2025-06-06 17:30","end":"2025-06-06 18:20"},
+				{"name":"TV on the Radio","short":"tvonra(1)","start":"2025-06-06 19:45","end":"2025-06-06 20:45"},
+				{"name":"HAIM","short":"haim(1)","start":"2025-06-06 22:15","end":"2025-06-06 23:30"},
+				{"name":"Beach House","short":"beachh(1)","start":"2025-06-07 01:30","end":"2025-06-07 03:00"},
+				{"name":"DEHD","short":"dehd(1)","start":"2025-06-07 17:30","end":"2025-06-07 18:15"},
+				{"name":"Judeline","short":"judeli(1)","start":"2025-06-07 19:35","end":"2025-06-07 20:35"},
+				{"name":"Chappell Roan","short":"chappe(1)","start":"2025-06-07 22:15","end":"2025-06-07 23:45"},
+				{"name":"LCD Soundsystem","short":"lcdsou1(1)","start":"2025-06-08 01:30","end":"2025-06-08 03:00"}
+			]
+		},
+		{
+			"name":"Santander",
+			"events":[
+				{"name":"Sturgill Simpson","short":"sturgi(1)","start":"2025-06-05 18:30","end":"2025-06-05 19:30"},
+				{"name":"Denzel Curry","short":"denzel(1)","start":"2025-06-05 21:00","end":"2025-06-05 22:00"},
+				{"name":"Charli XCX & Troye Sivan present \"Sweat\"","short":"charli1(1)","start":"2025-06-05 23:45","end":"2025-06-06 01:30"},
+				{"name":"Waxahatchee","short":"waxaha(1)","start":"2025-06-06 18:30","end":"2025-06-06 19:30"},
+				{"name":"Fuckers","short":"fucker(1)","start":"2025-06-06 21:00","end":"2025-06-06 22:00"},
+				{"name":"Sabrina Carpenter","short":"sabrin(1)","start":"2025-06-06 23:45","end":"2025-06-07 01:15"},
+				{"name":"Los Campesinos!","short":"campes(1)","start":"2025-06-07 18:25","end":"2025-06-07 19:25"},
+				{"name":"Fontaines D. C.","short":"fontai(1)","start":"2025-06-07 20:45","end":"2025-06-07 22:00"},
+				{"name":"Central Cee","short":"centra(1)","start":"2025-06-08 00:00","end":"2025-06-08 01:15"}
+			]
+		},
+		{
+			"name":"Amazon Music",
+			"events":[
+				{"name":"Ciutat","short":"ciutat(1)","start":"2025-06-05 18:00","end":"2025-06-05 18:45"},
+				{"name":"Kate Bollinger","short":"katebo(1)","start":"2025-06-05 19:45","end":"2025-06-05 20:40"},
+				{"name":"Beabadoobee","short":"beabad(1)","start":"2025-06-05 21:50","end":"2025-06-05 22:50"},
+				{"name":"Idles","short":"idles(1)","start":"2025-06-06 00:00","end":"2025-06-06 01:15"},
+				{"name":"Armand Van Helden","short":"armand(1)","start":"2025-06-06 02:15","end":"2025-06-06 04:00"},
+				{"name":"Amor Líquido","short":"amorlq(1)","start":"2025-06-06 18:00","end":"2025-06-06 18:40"},
+				{"name":"Zaho de Sagazan","short":"zahode(1)","start":"2025-06-06 19:50","end":"2025-06-06 20:50"},
+				{"name":"Wet Leg","short":"wetleg(1)","start":"2025-06-06 22:00","end":"2025-06-06 23:20"},
+				{"name":"ANOTR","short":"anotr(1)","start":"2025-06-07 00:30","end":"2025-06-07 01:45"},
+				{"name":"Amelie Lens","short":"amelie(1)","start":"2025-06-07 02:50","end":"2025-06-07 04:20"},
+				{"name":"Euskoprincess","short":"euskop(1)","start":"2025-06-07 16:30","end":"2025-06-07 17:10"},
+				{"name":"Kim Deal","short":"kimdea(1)","start":"2025-06-07 18:00","end":"2025-06-07 19:00"},
+				{"name":"Aminé","short":"amin(1)","start":"2025-06-07 20:00","end":"2025-06-07 21:00"},
+				{"name":"Yung Beef","short":"yungbe(1)","start":"2025-06-07 22:10","end":"2025-06-07 23:10"},
+				{"name":"Turnistile","short":"turnis(1)","start":"2025-06-08 00:10","end":"2025-06-08 01:25"},
+				{"name":"Nicola Cruz","short":"nicola1(1)","start":"2025-06-08 02:35","end":"2025-06-08 03:50"}
+			]
+		},
+		{
+			"name":"Pull&Bear",
+			"events":[
+				{"name":"Amore","short":"amore(1)","start":"2025-06-05 17:15","end":"2025-06-05 17:50"},
+				{"name":"Julie","short":"julie(1)","start":"2025-06-05 18:50","end":"2025-06-05 19:40"},
+				{"name":"Momma","short":"momma(1)","start":"2025-06-05 20:50","end":"2025-06-05 21:40"},
+				{"name":"Nourished by Time","short":"nouris(1)","start":"2025-06-05 22:55","end":"2025-06-05 23:55"},
+				{"name":"Midnight","short":"midnig(1)","start":"2025-06-06 01:20","end":"2025-06-06 02:10"},
+				{"name":"Kelly Lee Owens","short":"kellyl(1)","start":"2025-06-06 04:10","end":"2025-06-06 05:10"},
+				{"name":"SOLUNA","short":"soluna(1)","start":"2025-06-06 17:10","end":"2025-06-06 17:55"},
+				{"name":"High Vis","short":"highvi(1)","start":"2025-06-06 18:50","end":"2025-06-06 19:40"},
+				{"name":"The Jesus Lizard","short":"jesusl(1)","start":"2025-06-06 20:55","end":"2025-06-06 21:55"},
+				{"name":"YOASOBI","short":"yoasob(1)","start":"2025-06-06 23:25","end":"2025-06-07 00:25"},
+				{"name":"Salem","short":"salem(1)","start":"2025-06-07 01:55","end":"2025-06-07 02:45"},
+				{"name":"Danny L Harle (live)","short":"dannyl(1)","start":"2025-06-07 04:25","end":"2025-06-07 05:15"},
+				{"name":"Kokoshca","short":"kokosh(1)","start":"2025-06-07 17:10","end":"2025-06-07 17:55"},
+				{"name":"Christian Lee Hutson","short":"christ1(1)","start":"2025-06-07 19:05","end":"2025-06-07 19:55"},
+				{"name":"Alan Spharkarh","short":"alansp(1)","start":"2025-06-07 21:05","end":"2025-06-07 22:05"},
+				{"name":"Cap'n Jazz","short":"capnja(1)","start":"2025-06-07 23:15","end":"2025-06-08 00:00"},
+				{"name":"Frost Childrens","short":"frostc(1)","start":"2025-06-08 01:30","end":"2025-06-08 02:30"},
+				{"name":"Joy Orbison","short":"joyorb(1)","start":"2025-06-08 04:00","end":"2025-06-08 05:00"}
+			]
+		},
+		{
+			"name":"Cupra",
+			"events":[
+				{"name":"Ultralágrima","short":"ultral(1)","start":"2025-06-05 17:10","end":"2025-06-05 17:50"},
+				{"name":"This is Lorelei","short":"thisis(1)","start":"2025-06-05 18:50","end":"2025-06-05 19:40"},
+				{"name":"CMAT","short":"cmat(1)","start":"2025-06-05 20:45","end":"2025-06-05 21:45"},
+				{"name":"Spiritualized permorming \"Pure Phase\"","short":"spirit2(1)","start":"2025-06-05 22:55","end":"2025-06-05 23:55"},
+				{"name":"The Sabres of Paradise","short":"sabres(1)","start":"2025-06-06 01:10","end":"2025-06-06 02:10"},
+				{"name":"Brutalismus 3000","short":"brutal(1)","start":"2025-06-06 04:30","end":"2025-06-06 06:00"},
+				{"name":"Tetas Frías","short":"tetasf(1)","start":"2025-06-06 17:15","end":"2025-06-06 17:55"},
+				{"name":"Heal","short":"heal(1)","start":"2025-06-06 18:50","end":"2025-06-06 19:45"},
+				{"name":"The Hard Quartet","short":"hardqu(1)","start":"2025-06-06 20:55","end":"2025-06-06 21:55"},
+				{"name":"Stereo Lab","short":"stereo(1)","start":"2025-06-06 23:05","end":"2025-06-07 00:20"},
+				{"name":"Floating Points (live)","short":"floati(1)","start":"2025-06-07 01:35","end":"2025-06-07 02:35"},
+				{"name":"Mala Junta: D.Dan & Dj Tool & Hyperaktivist & Yazzus","short":"malaju(1)","start":"2025-06-07 04:00","end":"2025-06-07 06:00"},
+				{"name":"Horsegirl","short":"horseg(1)","start":"2025-06-07 17:10","end":"2025-06-07 17:55"},
+				{"name":"Black Country, New Road","short":"blackc(1)","start":"2025-06-07 18:55","end":"2025-06-07 19:55"},
+				{"name":"Amaia","short":"amaia(1)","start":"2025-06-07 21:05","end":"2025-06-07 22:05"},
+				{"name":"Anonhi and the Johnsons","short":"anonhi(1)","start":"2025-06-07 23:05","end":"2025-06-08 00:05"},
+				{"name":"Glass Beams","short":"glassb(1)","start":"2025-06-08 01:20","end":"2025-06-08 02:20"},
+				{"name":"Confidence Man","short":"confid(1)","start":"2025-06-08 04:45","end":"2025-06-08 06:00"}
+			]
+		},
+		{
+			"name":"Plenitude",
+			"events":[
+				{"name":"Yawners","short":"yawner(1)","start":"2025-06-05 16:30","end":"2025-06-05 17:05"},
+				{"name":"Lumiere","short":"lumier(1)","start":"2025-06-05 18:00","end":"2025-06-05 18:45"},
+				{"name":"Ben Stellar","short":"benste(1)","start":"2025-06-05 19:50","end":"2025-06-05 20:40"},
+				{"name":"Magdalena Bay","short":"magdal(1)","start":"2025-06-05 21:55","end":"2025-06-05 22:45"},
+				{"name":"Tramhaus","short":"tramha(1)","start":"2025-06-06 00:00","end":"2025-06-06 01:00"},
+				{"name":"Dame Area","short":"damear(1)","start":"2025-06-06 02:15","end":"2025-06-06 03:15"},
+				{"name":"The Dare","short":"dare(1)","start":"2025-06-06 04:15","end":"2025-06-06 05:00"},
+				{"name":"Frente Abierto feat Israel Fernández y Lela Soto","short":"frente(1)","start":"2025-06-06 16:30","end":"2025-06-06 17:10"},
+				{"name":"Feeble Little Horse","short":"feeble(1)","start":"2025-06-06 18:00","end":"2025-06-06 18:45"},
+				{"name":"Chanel Beads","short":"chanel(1)","start":"2025-06-06 20:00","end":"2025-06-06 20:50"},
+				{"name":"Still Plant House","short":"stillp(1)","start":"2025-06-06 22:00","end":"2025-06-06 23:00"},
+				{"name":"Shabjdeed & Al Nather","short":"shabjd(1)","start":"2025-06-07 00:30","end":"2025-06-07 01:30"},
+				{"name":"Gouge Away","short":"gougea(1)","start":"2025-06-07 02:45","end":"2025-06-07 03:25"},
+				{"name":"Miss Bashful & DBBD (live)","short":"missba(1)","start":"2025-06-07 04:30","end":"2025-06-07 05:15"},
+				{"name":"Xenia","short":"xenia(1)","start":"2025-06-07 16:30","end":"2025-06-07 17:10"},
+				{"name":"Mj Lenderman","short":"mjlend(1)","start":"2025-06-07 18:00","end":"2025-06-07 18:50"},
+				{"name":"Squid","short":"squid(1)","start":"2025-06-07 20:00","end":"2025-06-07 20:50"},
+				{"name":"Chat Pile","short":"chatpi(1)","start":"2025-06-07 22:10","end":"2025-06-07 22:55"},
+				{"name":"Isabella Love Story","short":"isabel1(1)","start":"2025-06-08 00:20","end":"2025-06-08 01:10"},
+				{"name":"Machine Girl","short":"machin(1)","start":"2025-06-08 02:30","end":"2025-06-08 03:30"},
+				{"name":"Sandwell District","short":"sandwe(1)","start":"2025-06-08 04:30","end":"2025-06-08 05:30"}
+			]
+		},
+		{
+			"name":"Warehouse",
+			"events":[
+				{"name":"Heinali & Andriana-Yaroslava Saienko","short":"heinal2(1)","start":"2025-06-05 22:00","end":"2025-06-05 22:45"},
+				{"name":"Barker","short":"barker(1)","start":"2025-06-05 22:50","end":"2025-06-05 23:50"},
+				{"name":"Crystallmess (live)","short":"crysta(1)","start":"2025-06-05 23:55","end":"2025-06-06 00:40"},
+				{"name":"Aunty Razor & DJ Toby","short":"auntyr(1)","start":"2025-06-06 00:45","end":"2025-06-06 01:45"},
+				{"name":"Toumba (live)","short":"toumba1(1)","start":"2025-06-06 01:50","end":"2025-06-06 02:50"},
+				{"name":"Kia","short":"kia(1)","start":"2025-06-06 02:55","end":"2025-06-06 04:10"},
+				{"name":"Djrum","short":"djrum(1)","start":"2025-06-06 04:15","end":"2025-06-06 05:30"},
+				{"name":"Eukka Morris Sirikitty","short":"eukkam(1)","start":"2025-06-06 22:00","end":"2025-06-06 22:45"},
+				{"name":"Cinna Peyghamy","short":"cinnap(1)","start":"2025-06-06 22:50","end":"2025-06-06 23:50"},
+				{"name":"Florence Sinclair","short":"floren1(1)","start":"2025-06-06 23:55","end":"2025-06-07 00:40"},
+				{"name":"Simo Cell (live)","short":"simoce(1)","start":"2025-06-07 00:45","end":"2025-06-07 01:45"},
+				{"name":"4am Kru","short":"4amkru(1)","start":"2025-06-07 01:50","end":"2025-06-07 02:50"},
+				{"name":"Sideproject","short":"sidepr(1)","start":"2025-06-07 02:55","end":"2025-06-07 03:55"},
+				{"name":"Jehia","short":"jehia(1)","start":"2025-06-07 04:00","end":"2025-06-07 05:30"},
+				{"name":"Beatrice Dillon ","short":"beatri2(1)","start":"2025-06-07 22:00","end":"2025-06-07 22:45"},
+				{"name":"Jonathan Fitoussi","short":"jonath(1)","start":"2025-06-07 22:50","end":"2025-06-07 23:50"},
+				{"name":"D'Arcangelo","short":"darcan(1)","start":"2025-06-07 23:55","end":"2025-06-08 00:55"},
+				{"name":"DJ Masda","short":"djmasd(1)","start":"2025-06-08 01:00","end":"2025-06-08 02:20"},
+				{"name":"RHR","short":"rhr(1)","start":"2025-06-08 02:25","end":"2025-06-08 03:45"},
+				{"name":"Sherelle","short":"sherel(1)","start":"2025-06-08 03:50","end":"2025-06-08 05:30"}
+			]
+		},
+		{
+			"name":"Dice",
+			"events":[
+				{"name":"Sugarfree","short":"sugarf(1)","start":"2025-06-05 19:00","end":"2025-06-05 20:30"},
+				{"name":"John Talabot b2b DJ Dustin","short":"johnta1(1)","start":"2025-06-05 20:30","end":"2025-06-05 23:30"},
+				{"name":"DJ Python","short":"djpyth(1)","start":"2025-06-05 23:30","end":"2025-06-06 01:30"},
+				{"name":"Jane Fitz","short":"janefi(1)","start":"2025-06-06 01:30","end":"2025-06-06 03:30"},
+				{"name":"Dj Koze","short":"djkoze(1)","start":"2025-06-06 03:30","end":"2025-06-06 05:30"},
+				{"name":"Kinetic","short":"kineti(1)","start":"2025-06-06 19:00","end":"2025-06-06 21:00"},
+				{"name":"Shed (live)","short":"shedli1(1)","start":"2025-06-06 21:00","end":"2025-06-06 22:00"},
+				{"name":"Ogazón","short":"ogazn(1)","start":"2025-06-06 22:00","end":"2025-06-07 00:00"},
+				{"name":"Mor Alien b2b Alarico","short":"morali(1)","start":"2025-06-07 00:00","end":"2025-06-07 03:00"},
+				{"name":"Kittin","short":"kittin(1)","start":"2025-06-07 03:00","end":"2025-06-07 05:30"},
+				{"name":"Restinga","short":"restin(1)","start":"2025-06-07 19:00","end":"2025-06-07 20:30"},
+				{"name":"Lanav","short":"lanav(1)","start":"2025-06-07 20:30","end":"2025-06-07 22:00"},
+				{"name":"Diamin","short":"diamin(1)","start":"2025-06-07 22:00","end":"2025-06-07 23:30"},
+				{"name":"INVT","short":"invt(1)","start":"2025-06-07 23:30","end":"2025-06-08 01:30"},
+				{"name":"John Talabot b2b Mad Miran (AHD DJ´s)","short":"johnta3(1)","start":"2025-06-08 01:30","end":"2025-06-08 04:00"},
+				{"name":"Dannly L Harle (dj set)","short":"dannly(1)","start":"2025-06-08 04:00","end":"2025-06-08 05:30"}
+			]
+		},
+		{
+			"name":"Brunch Electronik",
+			"events":[
+				{"name":"ONA","short":"ona(1)","start":"2025-06-08 13:00","end":"2025-06-08 15:00"},
+				{"name":"Carlita ","short":"carlit1(1)","start":"2025-06-08 15:00","end":"2025-06-08 17:00"},
+				{"name":"BUNT","short":"bunt(1)","start":"2025-06-08 17:00","end":"2025-06-08 19:00"},
+				{"name":"Paul Kalkbrenner","short":"paulka(1)","start":"2025-06-08 19:00","end":"2025-06-08 21:15"},
+				{"name":"Michael Bibi","short":"michae(1)","start":"2025-06-08 21:15","end":"2025-06-08 23:00"}
+			]
+		},
+		{
+			"name":"Parc del Fórum",
+			"events":[
+				{"name":"Llum","short":"llum(1)","start":"2025-06-04 17:35","end":"2025-06-04 18:15"},
+				{"name":"Hinds","short":"hinds(1)","start":"2025-06-04 18:40","end":"2025-06-04 19:30"},
+				{"name":"La Casa Azul","short":"casaaz(1)","start":"2025-06-04 20:10","end":"2025-06-04 21:10"},
+				{"name":"Caribou","short":"caribo(1)","start":"2025-06-04 21:45","end":"2025-06-04 23:15"}
+			]
+		}
+	]
+}
