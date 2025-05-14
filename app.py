@@ -19,7 +19,33 @@ def create_app():
         @app.route("/year/<int:year>")
         def lineup(year):
             performances = Performance.query.filter_by(year=year).order_by(Performance.day, Performance.stage).all()
-            return render_template("lineup.html", year=year, performances=performances)
+
+            experience_entries = Experience.query.filter_by(user_id=1).all()
+            experience_data = {
+                exp.performance_id: {
+                    "status": exp.viewing_status,
+                    "rating": exp.rating
+                } for exp in experience_entries
+            }
+
+            theme_class = f"theme-{year}"
+
+            return render_template(
+                "lineup.html",
+                year=year,
+                performances=performances,
+                experience_data=experience_data,
+                theme_class=theme_class
+            )
+
+        @app.route("/stats")
+        def stats():
+            experiences = Experience.query.filter_by(user_id=1).all()
+            watched = sum(1 for exp in experiences if exp.viewing_status == "watched")
+            glanced = sum(1 for exp in experiences if exp.viewing_status == "glanced")
+            skipped = sum(1 for exp in experiences if exp.viewing_status == "skipped")
+
+            return render_template("stats.html", watched=watched, glanced=glanced, skipped=skipped)
 
         USER_ID = 1
 

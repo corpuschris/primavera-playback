@@ -4,24 +4,53 @@
     <meta charset="UTF-8">
     <title>Primavera {{ year }} Lineup</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        const userExperience = {{ experience_data | tojson }};
+    </script>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </head>
-<body>
+<body class="{{ theme_class }}">
     <h1>🎤 Primavera {{ year }} Lineup</h1>
     <p><a href="/">← Back to years</a></p>
 
-    <ul>
+    <div class="filters">
+        <label for="stageFilter">Stage:</label>
+        <select id="stageFilter">
+            <option value="all">All</option>
+            {% for perf in performances|map(attribute='stage')|unique %}
+                <option value="{{ perf }}">{{ perf }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="dayFilter">Day:</label>
+        <select id="dayFilter">
+            <option value="all">All</option>
+            {% for perf in performances|map(attribute='day')|unique %}
+                <option value="{{ perf }}">{{ perf }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="statusFilter">Status:</label>
+        <select id="statusFilter">
+            <option value="all">All</option>
+            <option value="watched">✅ Watched</option>
+            <option value="glanced">👀 Glanced</option>
+            <option value="skipped">❌ Skipped</option>
+        </select>
+
+        <button id="applyFilters" class="filter-button">🔍 Go</button>
+    </div>
+
+    <ul id="performanceList">
       {% for perf in performances %}
-        <li>
+        <li class="performance" data-stage="{{ perf.stage }}" data-day="{{ perf.day }}">
           <strong>{{ perf.day }}</strong> – {{ perf.stage }} – {{ perf.artist }}
 
-          <!-- Viewing status buttons -->
           <div class="experience-buttons" data-performance-id="{{ perf.id }}">
             <button onclick="setStatus({{ perf.id }}, 'watched')">✅ Watched</button>
             <button onclick="setStatus({{ perf.id }}, 'glanced')">👀 Glanced</button>
             <button onclick="setStatus({{ perf.id }}, 'skipped')">❌ Skipped</button>
 
-            <!-- Rating dropdown (only used for 'watched') -->
             <select id="rating-{{ perf.id }}" onchange="setRating({{ perf.id }}, this.value)" style="display: none;">
               <option value="">Rate it</option>
               <option value="good">🌟 Good</option>

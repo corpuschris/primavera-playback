@@ -5,14 +5,16 @@
     <title>Primavera Playback</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
-    <h1>🎶 Primavera Playback</h1>
-    <p>Select a year to view the lineup:</p>
+<body class="home-theme">
+    <div class="home-container">
+        <h1>🌈 Primavera Playback</h1>
+        <p class="tagline">Track your festival journey year by year.</p>
 
-    <ul>
-        {% for year in years %}
-            <li><a href="/year/{{ year }}">{{ year }}</a></li>
-        {% endfor %}
-    </ul>
+        <div class="year-links">
+            {% for year in years %}
+                <a href="{{ url_for('lineup', year=year) }}" class="year-box">🎶 {{ year }}</a>
+            {% endfor %}
+        </div>
+    </div>
 </body>
 </html>
