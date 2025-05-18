@@ -1,65 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Primavera {{ year }} Lineup</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <script>
-        const userExperience = {{ experience_data | tojson }};
-    </script>
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <meta charset="UTF-8">
+  <title>Primavera {{ year }} Lineup</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script>
+    const experienceData = {{ experience_data | tojson }};
+  </script>
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
 </head>
-<body class="{{ theme_class }}">
-    <h1>🎤 Primavera {{ year }} Lineup</h1>
-    <p><a href="/">← Back to years</a></p>
+<body class="{{ theme_class }}" data-year="{{ year }}">
+  <div class="page-banner">
+    <h1>Primavera {{ year }}</h1>
+    <p class="slogan">“{{ slogan }}”</p>
+    <p><a href="/" class="back-home">← Back home</a></p>
+  </div>
 
-    <div class="filters">
-        <label for="stageFilter">Stage:</label>
-        <select id="stageFilter">
-            <option value="all">All</option>
-            {% for perf in performances|map(attribute='stage')|unique %}
-                <option value="{{ perf }}">{{ perf }}</option>
+  <div class="filters">
+    <input id="searchInput" class="search-bar" type="text" placeholder="Search artist name...">
+    <button id="clearAllBtn" class="clear-button" data-year="{{ year }}">Clear All</button>
+  </div>
+
+  {% set days = performances | map(attribute='day') | list | unique %}
+  {% for day in days %}
+    <section class="day-section">
+      <h2 class="day-heading">{{ day }}</h2>
+
+      {% set day_perfs = performances | selectattr('day', 'equalto', day) | list %}
+      {% set stages = day_perfs | map(attribute='stage') | list | unique %}
+
+      {% for stage in stages %}
+        <div class="stage-group">
+          <h3 class="stage-heading">{{ stage }}</h3>
+          <div class="artist-grid">
+            {% for perf in day_perfs if perf.stage == stage %}
+              {% set exp = experience_data.get(perf.id, {}) %}
+              {% set status = exp.status %}
+              {% set rating = exp.rating %}
+
+              {% set size_class = {
+                ('watched', 'good'): 'huge',
+                ('watched', 'okay'): 'large',
+                ('watched', 'bad'): 'medium',
+                ('glanced', None): 'small',
+                ('skipped', None): 'tiny'
+              }.get((status, rating), 'tiny') %}
+
+              {% set color_class = {
+                'watched': 'bright',
+                'glanced': 'purple',
+                'skipped': 'red'
+              }.get(status, 'default') %}
+
+              {% if rating == 'bad' %}
+                {% set color_class = 'meh' %}
+              {% elif rating == 'good' %}
+                {% set color_class = 'good' %}
+              {% endif %}
+
+              <div class="artist-bubble {{ size_class }} {{ color_class }}" data-performance-id="{{ perf.id }}" data-artist="{{ perf.artist | lower }}">
+                <div class="artist-name">{{ perf.artist }}</div>
+                <div class="bubble-controls">
+                  <button onclick="setStatus({{ perf.id }}, 'watched')">✅</button>
+                  <button onclick="setStatus({{ perf.id }}, 'glanced')">👀</button>
+                  <button onclick="setStatus({{ perf.id }}, 'skipped')">❌</button>
+                  <select id="rating-{{ perf.id }}" onchange="setRating({{ perf.id }}, this.value)" {% if status != 'watched' %}style="display: none;"{% endif %}>
+                    <option value="">Rate it</option>
+                    <option value="good" {% if rating == 'good' %}selected{% endif %}>🌟</option>
+                    <option value="okay" {% if rating == 'okay' %}selected{% endif %}>😐</option>
+                    <option value="bad" {% if rating == 'bad' %}selected{% endif %}>💩</option>
+                  </select>
+                </div>
+              </div>
             {% endfor %}
-        </select>
-
-        <label for="dayFilter">Day:</label>
-        <select id="dayFilter">
-            <option value="all">All</option>
-            {% for perf in performances|map(attribute='day')|unique %}
-                <option value="{{ perf }}">{{ perf }}</option>
-            {% endfor %}
-        </select>
-
-        <label for="statusFilter">Status:</label>
-        <select id="statusFilter">
-            <option value="all">All</option>
-            <option value="watched">✅ Watched</option>
-            <option value="glanced">👀 Glanced</option>
-            <option value="skipped">❌ Skipped</option>
-        </select>
-
-        <button id="applyFilters" class="filter-button">🔍 Go</button>
-    </div>
-
-    <ul id="performanceList">
-      {% for perf in performances %}
-        <li class="performance" data-stage="{{ perf.stage }}" data-day="{{ perf.day }}">
-          <strong>{{ perf.day }}</strong> – {{ perf.stage }} – {{ perf.artist }}
-
-          <div class="experience-buttons" data-performance-id="{{ perf.id }}">
-            <button onclick="setStatus({{ perf.id }}, 'watched')">✅ Watched</button>
-            <button onclick="setStatus({{ perf.id }}, 'glanced')">👀 Glanced</button>
-            <button onclick="setStatus({{ perf.id }}, 'skipped')">❌ Skipped</button>
-
-            <select id="rating-{{ perf.id }}" onchange="setRating({{ perf.id }}, this.value)" style="display: none;">
-              <option value="">Rate it</option>
-              <option value="good">🌟 Good</option>
-              <option value="okay">😐 Okay</option>
-              <option value="bad">💩 Meh</option>
-            </select>
           </div>
-        </li>
+        </div>
       {% endfor %}
-    </ul>
+    </section>
+  {% endfor %}
 </body>
 </html>

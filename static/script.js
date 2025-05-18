@@ -1,115 +1,128 @@
-function setStatus(perfId, status) {
-    const container = document.querySelector(`[data-performance-id="${perfId}"]`);
-    const ratingDropdown = document.getElementById(`rating-${perfId}`);
-    if (!container) return;
+// script.js
 
-    const buttons = container.querySelectorAll("button");
-    let alreadySelected = false;
-
-    buttons.forEach(btn => {
-        const icon = btn.textContent.trim();
-        if (
-            (icon.includes("✅") && status === "watched" && btn.classList.contains("selected")) ||
-            (icon.includes("👀") && status === "glanced" && btn.classList.contains("selected")) ||
-            (icon.includes("❌") && status === "skipped" && btn.classList.contains("selected"))
-        ) {
-            alreadySelected = true;
-        }
-        btn.classList.remove("selected");
-    });
-
-    if (alreadySelected) {
-        ratingDropdown.style.display = "none";
-        setRating(perfId, "");
-        fetch(`/api/experience/${perfId}`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ viewing_status: "" })
-        });
-        return;
-    }
-
-    const buttonToSelect = {
-        watched: "✅",
-        glanced: "👀",
-        skipped: "❌"
-    }[status];
-
-    buttons.forEach(btn => {
-        if (btn.textContent.includes(buttonToSelect)) {
-            btn.classList.add("selected");
+function setStatus(performanceId, status) {
+    fetch(`/api/experience/${performanceId}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ viewing_status: status })
+    })
+    .then(response => response.json())
+    .then(() => {
+        updateBubbleUI(performanceId, status, experienceData[performanceId]?.rating || null);
+        experienceData[performanceId] = experienceData[performanceId] || {};
+        experienceData[performanceId].status = status;
+        if (status !== "watched") {
+            experienceData[performanceId].rating = null;
         }
     });
+}
+
+function setRating(performanceId, rating) {
+    fetch(`/api/experience/${performanceId}/rating`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ rating: rating })
+    })
+    .then(response => response.json())
+    .then(() => {
+        updateBubbleUI(performanceId, "watched", rating);
+        experienceData[performanceId] = experienceData[performanceId] || {};
+        experienceData[performanceId].rating = rating;
+    });
+}
+
+function updateBubbleUI(performanceId, status, rating) {
+    const bubble = document.querySelector(`[data-performance-id='${performanceId}']`);
+    if (!bubble) return;
+
+    bubble.classList.remove("bright", "purple", "red", "good", "meh", "default", "tiny", "small", "medium", "large", "huge");
+
+    let size = "tiny";
+    let color = "default";
 
     if (status === "watched") {
-        ratingDropdown.style.display = "inline";
+        size = "medium";
+        color = "bright";
+        bubble.querySelector("select").style.display = "block";
+
+        if (rating === "good") {
+            bubble.classList.add("huge", "good");
+        } else if (rating === "okay") {
+            bubble.classList.add("medium");
+        } else if (rating === "bad") {
+            bubble.classList.add("medium", "meh");
+        }
+    } else if (status === "glanced") {
+        size = "small";
+        color = "purple";
+        bubble.querySelector("select").style.display = "none";
+    } else if (status === "skipped") {
+        size = "tiny";
+        color = "red";
+        bubble.querySelector("select").style.display = "none";
     } else {
-        ratingDropdown.style.display = "none";
-        setRating(perfId, "");
+        bubble.querySelector("select").style.display = "none";
     }
 
-    fetch(`/api/experience/${perfId}`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ viewing_status: status })
-    });
-}
+    bubble.classList.add(color, size);
 
-function setRating(perfId, rating) {
-    fetch(`/api/experience/${perfId}/rating`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ rating: rating })
-    });
-}
-
-function applyFilters() {
-    const stage = document.getElementById("stageFilter").value;
-    const day = document.getElementById("dayFilter").value;
-    const status = document.getElementById("statusFilter").value;
-
-    const performances = document.querySelectorAll(".performance");
-    performances.forEach(perf => {
-        const perfId = perf.querySelector(".experience-buttons").dataset.performanceId;
-        const data = userExperience[perfId] || {};
-        const userStatus = data.status;
-
-        const matchesStage = stage === "all" || perf.dataset.stage === stage;
-        const matchesDay = day === "all" || perf.dataset.day === day;
-        const matchesStatus = status === "all" || userStatus === status;
-
-        if (matchesStage && matchesDay && matchesStatus) {
-            perf.style.display = "block";
-        } else {
-            perf.style.display = "none";
+    // Highlight the selected button
+    bubble.querySelectorAll("button").forEach(button => {
+        button.classList.remove("selected");
+        if (button.dataset.status === status) {
+            button.classList.add("selected");
         }
     });
+
+    if (rating) {
+        const select = bubble.querySelector("select");
+        if (select) {
+            select.value = rating;
+        }
+    }
 }
 
-window.onload = function () {
-    for (const [perfId, data] of Object.entries(userExperience)) {
-        const container = document.querySelector(`[data-performance-id="${perfId}"]`);
-        if (!container) continue;
-
-        const buttons = container.querySelectorAll("button");
-        buttons.forEach(btn => {
-            if (btn.textContent.includes("✅") && data.status === "watched") btn.classList.add("selected");
-            if (btn.textContent.includes("👀") && data.status === "glanced") btn.classList.add("selected");
-            if (btn.textContent.includes("❌") && data.status === "skipped") btn.classList.add("selected");
+function clearAllStatuses(year) {
+    fetch(`/api/clear_all/${year}`, {
+        method: "POST"
+    })
+    .then(response => response.json())
+    .then(() => {
+        document.querySelectorAll(".artist-bubble").forEach(bubble => {
+            const id = bubble.dataset.performanceId;
+            bubble.classList.remove("bright", "purple", "red", "good", "meh", "default", "tiny", "small", "medium", "large", "huge");
+            bubble.classList.add("default", "tiny");
+            const select = bubble.querySelector("select");
+            if (select) {
+                select.style.display = "none";
+                select.value = "";
+            }
+            bubble.querySelectorAll("button").forEach(btn => btn.classList.remove("selected"));
+            delete experienceData[id];
         });
+    });
+}
 
-        const ratingDropdown = document.getElementById(`rating-${perfId}`);
-        if (data.status === "watched") {
-            ratingDropdown.style.display = "inline";
-            ratingDropdown.value = data.rating || "";
-        }
+document.addEventListener("DOMContentLoaded", () => {
+    // Apply initial experience data
+    Object.entries(experienceData).forEach(([id, exp]) => {
+        updateBubbleUI(id, exp.status, exp.rating);
+    });
+
+    const searchInput = document.getElementById("searchInput");
+    if (searchInput) {
+        searchInput.addEventListener("input", () => {
+            const query = searchInput.value.toLowerCase();
+            document.querySelectorAll(".artist-bubble").forEach(bubble => {
+                const name = bubble.dataset.artist;
+                bubble.style.display = name.includes(query) ? "flex" : "none";
+            });
+        });
     }
 
-    document.getElementById("applyFilters").addEventListener("click", applyFilters);
-};
+    const clearBtn = document.getElementById("clearAllBtn");
+    if (clearBtn) {
+        const year = clearBtn.dataset.year;
+        clearBtn.addEventListener("click", () => clearAllStatuses(year));
+    }
+});

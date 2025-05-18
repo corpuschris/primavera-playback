@@ -4,17 +4,38 @@
     <meta charset="UTF-8">
     <title>Primavera Playback</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body class="home-theme">
-    <div class="home-container">
-        <h1>🌈 Primavera Playback</h1>
-        <p class="tagline">Track your festival journey year by year.</p>
+    <div class="home-hero">
+        <h1 class="site-title">🌅<br>Primavera<br>Playback</h1>
+        <p class="tagline">Created in Barcelona — a joyful archive of your Primavera adventures 🌈</p>
+    </div>
 
-        <div class="year-links">
-            {% for year in years %}
-                <a href="{{ url_for('lineup', year=year) }}" class="year-box">🎶 {{ year }}</a>
-            {% endfor %}
-        </div>
+    <div class="year-grid">
+        {% for year in years %}
+        <section class="year-burst">
+            <h2 class="year-label"><a href="{{ url_for('lineup', year=year) }}">{{ year }}</a></h2>
+            <div class="bubble-wrap burst-layout">
+                {% if year in watched_by_year %}
+                    {% for artist in watched_by_year[year] %}
+                        {% set bubble_class = 'bubble' %}
+                        {% set exp = experience_lookup.get(artist, {}) %}
+                        {% if exp.rating == 'good' %}
+                            {% set bubble_class = bubble_class + ' bubble-good' %}
+                        {% elif exp.rating == 'okay' %}
+                            {% set bubble_class = bubble_class + ' bubble-okay' %}
+                        {% elif exp.rating == 'bad' %}
+                            {% set bubble_class = bubble_class + ' bubble-bad' %}
+                        {% endif %}
+                        <a href="{{ url_for('lineup', year=year) }}#{{ artist | replace(' ', '_') }}" class="{{ bubble_class }}">{{ artist }}</a>
+                    {% endfor %}
+                {% else %}
+                    <p class="empty">🫠 no acts yet!</p>
+                {% endif %}
+            </div>
+        </section>
+        {% endfor %}
     </div>
 </body>
 </html>
