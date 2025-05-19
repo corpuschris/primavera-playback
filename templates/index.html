@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <title>Primavera Playback</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Bebas+Neue&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body class="home-theme">
     <div class="home-hero">
         <h1 class="site-title">🌅<br>Primavera<br>Playback</h1>
-        <p class="tagline">Created in Barcelona — a joyful archive of your Primavera adventures 🌈</p>
+        <p class="tagline">Your memories created in Barcelona.</p>
     </div>
 
     <div class="year-grid">
@@ -27,8 +27,14 @@
                             {% set bubble_class = bubble_class + ' bubble-okay' %}
                         {% elif exp.rating == 'bad' %}
                             {% set bubble_class = bubble_class + ' bubble-bad' %}
+                        {% elif exp.status == 'glanced' %}
+                            {% set bubble_class = bubble_class + ' glance' %}
+                        {% elif exp.status == 'watched' %}
+                            {% set bubble_class = bubble_class + ' bright' %}
                         {% endif %}
-                        <a href="{{ url_for('lineup', year=year) }}#{{ artist | replace(' ', '_') }}" class="{{ bubble_class }}">{{ artist }}</a>
+                        <a href="{{ url_for('lineup', year=year) }}#{{ artist | replace(' ', '_') }}" class="{{ bubble_class }}">
+                            {{ artist }}
+                        </a>
                     {% endfor %}
                 {% else %}
                     <p class="empty">🫠 no acts yet!</p>

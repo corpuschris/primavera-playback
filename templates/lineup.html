@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Primavera {{ year }} Lineup</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <script>
     const experienceData = {{ experience_data | tojson }};
   </script>
@@ -11,7 +12,7 @@
 </head>
 <body class="{{ theme_class }}" data-year="{{ year }}">
   <div class="page-banner">
-    <h1>Primavera {{ year }}</h1>
+    <h1 style="font-family: 'Bebas Neue', sans-serif; font-size: 13rem; letter-spacing: 5px;">PRIMAVERA {{ year }}</h1>
     <p class="slogan">“{{ slogan }}”</p>
     <p><a href="/" class="back-home">← Back home</a></p>
   </div>
@@ -48,7 +49,7 @@
 
               {% set color_class = {
                 'watched': 'bright',
-                'glanced': 'purple',
+                'glanced': 'glance',
                 'skipped': 'red'
               }.get(status, 'default') %}
 
@@ -56,6 +57,8 @@
                 {% set color_class = 'meh' %}
               {% elif rating == 'good' %}
                 {% set color_class = 'good' %}
+              {% elif rating == 'okay' %}
+                {% set color_class = 'okay' %}
               {% endif %}
 
               <div class="artist-bubble {{ size_class }} {{ color_class }}" data-performance-id="{{ perf.id }}" data-artist="{{ perf.artist | lower }}">
